@@ -1,13 +1,6 @@
 namespace StatusBarKind {
     export const health2 = StatusBarKind.create()
 }
-function play_music () {
-    Notification.notify("Now Playing: Wet Hands", 5, assets.image`minecraft logo`)
-    music.play(music.stringPlayable(music.convertRTTTLToMelody("Wet Hands:d=4,o=5,b=74:8a3,8c#4,8a4,8b4,8c#,8b4,8a4,8e4,8d4,8f#4,8c#,8e,8c#,a.4,8a3,8c#4,8a4,8b4,8c#,8b4,8a4,8e4,8d4,8f#4,8c#,8e,8c#,a.4,8g#,8c#4,8a4,8b4,8c#,8b4,8a,8e4,8f#,8f#4,8c#,8e,8c#,8a4,8e,8f#,8g#,8c#4,8a4,8b4,8c#,8b4,8b,8c#6,8d4,8f#,8c#,8e,8c#,8a4,8c#6,8e6,8g6,8b3,8d4,8f#6,8d6,8f#4,8a,8b,8g3,8b3,8d4,8f#4,2a4,8g6,8b3,8f#6,8f#4,8d6,8f#4,8a,8b,8g3,8b3,8d4,8f#4,a4,a,8e,8c#4,8a4,8b4,8c#,8b4,8a4,8e4,8a3,8c#4,8e4,8a4,8c#,8e,8a,2c#6,8p,32b,16d.6,8d4,8f#4,8c#6,a,8e6,8f#6,8b3,8d6,8f#4,8a4,c#,8b,8c#6,8d6,8b3,8c#6,8d6,8a4,f#.6,c#6,2a4,8b4,8a4,8b4,8g#3,8b3,8e4,8g#4,8e4,8b3,8g#3,8e3,8g#3,8b3,8e4,8g#4,8e4,a3,8g6,8f#6,8e6,8d6,8e6,8d6,8e6,8f#6,8a3,8e6,8e4,8a4,8a6,8b4,8a4,8e4,8g#6,8e6,8b,8g#,2e,8b,8g#,8e,8b4,2g#4,8e3,8g#3,8b3,8e4,2e4,8e3,8g#3,8b3,8e4,1b.3"), 151), music.PlaybackMode.UntilDone)
-    Notification.notify("Now Playing: Sweden", 5, assets.image`minecraft logo`)
-    music.play(music.stringPlayable(music.convertRTTTLToMelody("sweden:d=4,o=5,b=43:g4,f#3,d,b3,a4,g3,2e,b4,f#3,f#,b3,c#,g3,2e,b4,f#3,f#,b3,c#,g3,2e,b4,8a,8b,f#,8b3,16d,16e,c#,8g3,16f#,16a,2e,8b4,8d6,8b,8a,f#,8b3,16d,16e,c#,8g3,16a,16f#,2e,b4,8a,8b,d6,8b3,16f#6,16e6,c#6,8g3,16d6,16c#6,2a,b4,8b,8a,f#,8b3,16d,16e,c#,8g3,16f#,16a,2e,b4,8a,8b,f#,8b3,16d,16e,c#,8g3,16f#,16a,2e,b4,8a,8b,d6,8b3,16d6,16e6,c#6,8f#6,16f#,16a,2e,f#.,16b,16a,g#,8e,8d,c#,8d,8e,2b4,d.6,16b,16a,g#,8e,8e6,c#6,8d6,16e6,16e,1b."), 120), music.PlaybackMode.UntilDone)
-    play_music()
-}
 controller.player2.onButtonEvent(ControllerButton.B, ControllerButtonEvent.Pressed, function () {
     locationplayer2 = mySprite2.tilemapLocation()
     tiles.setTileAt(tiles.getTileLocation(locationplayer2.column - 1, locationplayer2.row), assets.tile`transparency16`)
@@ -27,6 +20,18 @@ controller.player2.onButtonEvent(ControllerButton.A, ControllerButtonEvent.Press
         tiles.setWallAt(mySprite2.tilemapLocation(), true)
     }
 })
+controller.combos.attachCombo("uuddlrlra+d", function () {
+    multilights.toggleLighting(false)
+})
+function play_music () {
+    Notification.notify("Now Playing: Subwoofer Lulaby", 5, assets.image`minecraft logo`)
+    music.play(music.stringPlayable(music.convertRTTTLToMelody("sublub:d=4,o=5,b=73:c,b,g,b,c,b,g,b,c,b,g,b,c,b,g,b,c4,b,g,b,c4,b,g,b,c4,b,g,b,c4,b,g,b,8b,8c6,8d6,8e6,8g,8d6,8b,8b,c6,b,g,b,8b,8e6,8d6,8e6,8g,8g6,8b,8e6,a3,d6,g,b,8f6,8e6,8a,8c6,8f3,8a,c6,8b,8g,8d,8e6,8e,8d6,8g,8f,8f6,8e6,8a,8c6,8f3,8a,a6,g6,8e6,8d6,8e,8b,g,g,g6,e6,g6,c4,g6,e6,g6,c4,g6,e6,g6,c4,g6,e6,1g.6,2p,p,2e,16c7,8d.,b4,1g6,2c6,p,16e6,8a,16e,1c.6,1p,p,g6,e,1a.,1p,d6,b4,1b.,1p,c4,2c7,1g6,1c6,8g.6,1p,16p,2e4,b4,g4,p,2g,2d,c4,b4,2e4,2d,2e,c6,g6,e6,a,2g,2e,g6,a6,2c6,2e6,2e,b6,g6,2d6,2e6,2c6,8b6,16c7,16d7,8e7,8g7,2e4,d,d7,2e,c6,g6,2e6,2p,2e,g6,a6,2a4,e6,p,2e,c4,b4,2e4,2g,2c,c4,c6,2g4,2d,2e,c4,c6,1g.4,c4,b4,1g.4,c4,b4,1e.4"), 159), music.PlaybackMode.UntilDone)
+    Notification.notify("Now Playing: Wet Hands", 5, assets.image`minecraft logo`)
+    music.play(music.stringPlayable(music.convertRTTTLToMelody("Wet Hands:d=4,o=5,b=74:8a3,8c#4,8a4,8b4,8c#,8b4,8a4,8e4,8d4,8f#4,8c#,8e,8c#,a.4,8a3,8c#4,8a4,8b4,8c#,8b4,8a4,8e4,8d4,8f#4,8c#,8e,8c#,a.4,8g#,8c#4,8a4,8b4,8c#,8b4,8a,8e4,8f#,8f#4,8c#,8e,8c#,8a4,8e,8f#,8g#,8c#4,8a4,8b4,8c#,8b4,8b,8c#6,8d4,8f#,8c#,8e,8c#,8a4,8c#6,8e6,8g6,8b3,8d4,8f#6,8d6,8f#4,8a,8b,8g3,8b3,8d4,8f#4,2a4,8g6,8b3,8f#6,8f#4,8d6,8f#4,8a,8b,8g3,8b3,8d4,8f#4,a4,a,8e,8c#4,8a4,8b4,8c#,8b4,8a4,8e4,8a3,8c#4,8e4,8a4,8c#,8e,8a,2c#6,8p,32b,16d.6,8d4,8f#4,8c#6,a,8e6,8f#6,8b3,8d6,8f#4,8a4,c#,8b,8c#6,8d6,8b3,8c#6,8d6,8a4,f#.6,c#6,2a4,8b4,8a4,8b4,8g#3,8b3,8e4,8g#4,8e4,8b3,8g#3,8e3,8g#3,8b3,8e4,8g#4,8e4,a3,8g6,8f#6,8e6,8d6,8e6,8d6,8e6,8f#6,8a3,8e6,8e4,8a4,8a6,8b4,8a4,8e4,8g#6,8e6,8b,8g#,2e,8b,8g#,8e,8b4,2g#4,8e3,8g#3,8b3,8e4,2e4,8e3,8g#3,8b3,8e4,1b.3"), 151), music.PlaybackMode.UntilDone)
+    Notification.notify("Now Playing: Sweden", 5, assets.image`minecraft logo`)
+    music.play(music.stringPlayable(music.convertRTTTLToMelody("sweden:d=4,o=5,b=43:g4,f#3,d,b3,a4,g3,2e,b4,f#3,f#,b3,c#,g3,2e,b4,f#3,f#,b3,c#,g3,2e,b4,8a,8b,f#,8b3,16d,16e,c#,8g3,16f#,16a,2e,8b4,8d6,8b,8a,f#,8b3,16d,16e,c#,8g3,16a,16f#,2e,b4,8a,8b,d6,8b3,16f#6,16e6,c#6,8g3,16d6,16c#6,2a,b4,8b,8a,f#,8b3,16d,16e,c#,8g3,16f#,16a,2e,b4,8a,8b,f#,8b3,16d,16e,c#,8g3,16f#,16a,2e,b4,8a,8b,d6,8b3,16d6,16e6,c#6,8f#6,16f#,16a,2e,f#.,16b,16a,g#,8e,8d,c#,8d,8e,2b4,d.6,16b,16a,g#,8e,8e6,c#6,8d6,16e6,16e,1b."), 120), music.PlaybackMode.UntilDone)
+    play_music()
+}
 statusbars.onZero(StatusBarKind.Health, function (status) {
     sprites.destroy(mySprite, effects.hearts, 500)
 })
@@ -96,12 +101,17 @@ controller.player2.onEvent(ControllerEvent.Connected, function () {
     statusbar2.value = 12
     statusbar2.setStatusBarFlag(StatusBarFlag.SmoothTransition, true)
     mySprite2.setStayInScreen(true)
+    multilights.addLightSource(mySprite2)
     Notification.notify("Loaded Split Screen")
 })
 controller.player1.onButtonEvent(ControllerButton.B, ControllerButtonEvent.Pressed, function () {
     location = mySprite.tilemapLocation()
     tiles.setTileAt(tiles.getTileLocation(location.column - 1, location.row), assets.tile`transparency16`)
     tiles.setWallAt(tiles.getTileLocation(location.column - 1, location.row), false)
+})
+controller.combos.attachCombo("uuddlrlra+u", function () {
+    multilights.toggleLighting(true)
+    multilights.addLightSource(mySprite)
 })
 let statusbar2: StatusBarSprite = null
 let location: tiles.Location = null
