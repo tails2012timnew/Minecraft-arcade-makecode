@@ -1,6 +1,13 @@
 namespace StatusBarKind {
     export const health2 = StatusBarKind.create()
 }
+function play_music () {
+    Notification.notify("Now Playing: Wet Hands", 5, assets.image`minecraft logo`)
+    music.play(music.stringPlayable(music.convertRTTTLToMelody("Wet Hands:d=4,o=5,b=74:8a3,8c#4,8a4,8b4,8c#,8b4,8a4,8e4,8d4,8f#4,8c#,8e,8c#,a.4,8a3,8c#4,8a4,8b4,8c#,8b4,8a4,8e4,8d4,8f#4,8c#,8e,8c#,a.4,8g#,8c#4,8a4,8b4,8c#,8b4,8a,8e4,8f#,8f#4,8c#,8e,8c#,8a4,8e,8f#,8g#,8c#4,8a4,8b4,8c#,8b4,8b,8c#6,8d4,8f#,8c#,8e,8c#,8a4,8c#6,8e6,8g6,8b3,8d4,8f#6,8d6,8f#4,8a,8b,8g3,8b3,8d4,8f#4,2a4,8g6,8b3,8f#6,8f#4,8d6,8f#4,8a,8b,8g3,8b3,8d4,8f#4,a4,a,8e,8c#4,8a4,8b4,8c#,8b4,8a4,8e4,8a3,8c#4,8e4,8a4,8c#,8e,8a,2c#6,8p,32b,16d.6,8d4,8f#4,8c#6,a,8e6,8f#6,8b3,8d6,8f#4,8a4,c#,8b,8c#6,8d6,8b3,8c#6,8d6,8a4,f#.6,c#6,2a4,8b4,8a4,8b4,8g#3,8b3,8e4,8g#4,8e4,8b3,8g#3,8e3,8g#3,8b3,8e4,8g#4,8e4,a3,8g6,8f#6,8e6,8d6,8e6,8d6,8e6,8f#6,8a3,8e6,8e4,8a4,8a6,8b4,8a4,8e4,8g#6,8e6,8b,8g#,2e,8b,8g#,8e,8b4,2g#4,8e3,8g#3,8b3,8e4,2e4,8e3,8g#3,8b3,8e4,1b.3"), 151), music.PlaybackMode.UntilDone)
+    Notification.notify("Now Playing: Sweden", 5, assets.image`minecraft logo`)
+    music.play(music.stringPlayable(music.convertRTTTLToMelody("sweden:d=4,o=5,b=43:g4,f#3,d,b3,a4,g3,2e,b4,f#3,f#,b3,c#,g3,2e,b4,f#3,f#,b3,c#,g3,2e,b4,8a,8b,f#,8b3,16d,16e,c#,8g3,16f#,16a,2e,8b4,8d6,8b,8a,f#,8b3,16d,16e,c#,8g3,16a,16f#,2e,b4,8a,8b,d6,8b3,16f#6,16e6,c#6,8g3,16d6,16c#6,2a,b4,8b,8a,f#,8b3,16d,16e,c#,8g3,16f#,16a,2e,b4,8a,8b,f#,8b3,16d,16e,c#,8g3,16f#,16a,2e,b4,8a,8b,d6,8b3,16d6,16e6,c#6,8f#6,16f#,16a,2e,f#.,16b,16a,g#,8e,8d,c#,8d,8e,2b4,d.6,16b,16a,g#,8e,8e6,c#6,8d6,16e6,16e,1b."), 120), music.PlaybackMode.UntilDone)
+    play_music()
+}
 controller.player2.onButtonEvent(ControllerButton.B, ControllerButtonEvent.Pressed, function () {
     locationplayer2 = mySprite2.tilemapLocation()
     tiles.setTileAt(tiles.getTileLocation(locationplayer2.column - 1, locationplayer2.row), assets.tile`transparency16`)
@@ -101,14 +108,13 @@ tiles.placeOnTile(mySprite, tiles.getTileLocation(0, 2))
 controller.player1.moveSprite(mySprite)
 splitScreen.setSplitScreenEnabled(false)
 splitScreen.cameraFollowSprite(splitScreen.Camera.Camera1, mySprite)
-music.play(music.stringPlayable(music.convertRTTTLToMelody("sweden:d=4,o=5,b=43:g4,f#3,d,b3,a4,g3,2e,b4,f#3,f#,b3,c#,g3,2e,b4,f#3,f#,b3,c#,g3,2e,b4,8a,8b,f#,8b3,16d,16e,c#,8g3,16f#,16a,2e,8b4,8d6,8b,8a,f#,8b3,16d,16e,c#,8g3,16a,16f#,2e,b4,8a,8b,d6,8b3,16f#6,16e6,c#6,8g3,16d6,16c#6,2a,b4,8b,8a,f#,8b3,16d,16e,c#,8g3,16f#,16a,2e,b4,8a,8b,f#,8b3,16d,16e,c#,8g3,16f#,16a,2e,b4,8a,8b,d6,8b3,16d6,16e6,c#6,8f#6,16f#,16a,2e,f#.,16b,16a,g#,8e,8d,c#,8d,8e,2b4,d.6,16b,16a,g#,8e,8e6,c#6,8d6,16e6,16e,1b."), 120), music.PlaybackMode.LoopingInBackground)
 statusbar = statusbars.create(20, 4, StatusBarKind.Health)
 statusbar.attachToSprite(mySprite)
 statusbar.setLabel("HP")
 statusbar.max = 12
 statusbar.value = 12
 statusbar.setStatusBarFlag(StatusBarFlag.SmoothTransition, true)
-Notification.notify("Game Loaded Sucessfuly", 1, assets.image`minecraft logo`)
+play_music()
 forever(function () {
     timer.after(randint(10000, 1000000000), function () {
         statusbar.value += 1
