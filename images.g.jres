@@ -1,0 +1,12 @@
+{
+    "image1": {
+        "data": "hwQQABAAAADn5O7u7u7u7kfu7u7u7uDu5+Tu7u7uAO5H7u7u7u4O4Ofk7u7u7u7gR+7uAAAA7uDn5O7u7u7u4Efu7u7u7u7g5+Tu7u7u7uBH7u4AAADu4Ofk7u7u7g7gR+7u7u7uAO7n5O7u7u7g7kfu7u7u7u7u5+Tu7u7u7u5H7u7u7u7u7g==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "minecraft logo"
+    },
+    "*": {
+        "mimeType": "image/x-mkcd-f4",
+        "dataEncoding": "base64",
+        "namespace": "myImages"
+    }
+}
