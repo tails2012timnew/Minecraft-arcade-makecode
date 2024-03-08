@@ -17,7 +17,10 @@ statusbars.onZero(StatusBarKind.Health, function (status) {
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Player, function (sprite, otherSprite) {
     if (controller.player2.isPressed(ControllerButton.B)) {
         statusbar.value += -1
-        mySprite.y += -5
+        mySprite.x += -5
+    } else if (controller.player1.isPressed(ControllerButton.B)) {
+        statusbar2.value += -1
+        mySprite2.x += -5
     }
 })
 controller.player1.onButtonEvent(ControllerButton.A, ControllerButtonEvent.Pressed, function () {
@@ -64,8 +67,8 @@ controller.player1.onButtonEvent(ControllerButton.B, ControllerButtonEvent.Press
     tiles.setTileAt(tiles.getTileLocation(location.column - 1, location.row), assets.tile`transparency16`)
     tiles.setWallAt(tiles.getTileLocation(location.column - 1, location.row), false)
 })
-let statusbar2: StatusBarSprite = null
 let location: tiles.Location = null
+let statusbar2: StatusBarSprite = null
 let mySprite2: Sprite = null
 let locationplayer2: tiles.Location = null
 let statusbar: StatusBarSprite = null
