@@ -17,12 +17,21 @@ statusbars.onZero(StatusBarKind.health2, function (status) {
     sprites.destroy(mySprite2, effects.hearts, 500)
 })
 controller.player2.onButtonEvent(ControllerButton.A, ControllerButtonEvent.Pressed, function () {
-    locationplayer2 = mySprite2.tilemapLocation()
-    tiles.setTileAt(mySprite2.tilemapLocation(), assets.tile`grass`)
-    tiles.setWallAt(mySprite2.tilemapLocation(), true)
+    if (block == parseFloat("1")) {
+        location = mySprite2.tilemapLocation()
+        tiles.setTileAt(mySprite2.tilemapLocation(), sprites.builtin.brick)
+        tiles.setWallAt(mySprite2.tilemapLocation(), true)
+    } else {
+        location = mySprite2.tilemapLocation()
+        tiles.setTileAt(mySprite2.tilemapLocation(), assets.tile`grass`)
+        tiles.setWallAt(mySprite2.tilemapLocation(), true)
+    }
 })
 statusbars.onZero(StatusBarKind.Health, function (status) {
     sprites.destroy(mySprite, effects.hearts, 500)
+})
+controller.player2.onEvent(ControllerEvent.Disconnected, function () {
+    splitScreen.setSplitScreenEnabled(false)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Player, function (sprite, otherSprite) {
     if (controller.player2.isPressed(ControllerButton.B)) {
@@ -33,10 +42,27 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Player, function (sprite, otherS
         mySprite2.x += -5
     }
 })
+controller.menu.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (block == parseFloat("0")) {
+        Notification.notify("Now Holding brick", 5)
+        block = 1
+        Notification.waitForNotificationFinish()
+    } else if (block == parseFloat("1")) {
+        Notification.notify("Now Holding grass", 5)
+        block = 0
+        Notification.waitForNotificationFinish()
+    }
+})
 controller.player1.onButtonEvent(ControllerButton.A, ControllerButtonEvent.Pressed, function () {
-    location = mySprite.tilemapLocation()
-    tiles.setTileAt(mySprite.tilemapLocation(), assets.tile`grass`)
-    tiles.setWallAt(mySprite.tilemapLocation(), true)
+    if (block == parseFloat("1")) {
+        location = mySprite.tilemapLocation()
+        tiles.setTileAt(mySprite.tilemapLocation(), sprites.builtin.brick)
+        tiles.setWallAt(mySprite.tilemapLocation(), true)
+    } else {
+        location = mySprite.tilemapLocation()
+        tiles.setTileAt(mySprite.tilemapLocation(), assets.tile`grass`)
+        tiles.setWallAt(mySprite.tilemapLocation(), true)
+    }
 })
 controller.player2.onEvent(ControllerEvent.Connected, function () {
     mySprite2 = sprites.create(img`
@@ -77,12 +103,14 @@ controller.player1.onButtonEvent(ControllerButton.B, ControllerButtonEvent.Press
     tiles.setTileAt(tiles.getTileLocation(location.column - 1, location.row), assets.tile`transparency16`)
     tiles.setWallAt(tiles.getTileLocation(location.column - 1, location.row), false)
 })
-let location: tiles.Location = null
 let statusbar2: StatusBarSprite = null
+let location: tiles.Location = null
 let mySprite2: Sprite = null
 let locationplayer2: tiles.Location = null
 let statusbar: StatusBarSprite = null
 let mySprite: Sprite = null
+let block = 0
+block = 0
 mySprite = sprites.create(img`
     . . . . f f f f . . . . . 
     . . f f f f f f f f . . . 
