@@ -7,7 +7,7 @@ controller.player2.onButtonEvent(ControllerButton.B, ControllerButtonEvent.Press
     tiles.setWallAt(tiles.getTileLocation(locationplayer2.column - 1, locationplayer2.row), false)
 })
 statusbars.onZero(StatusBarKind.health2, function (status) {
-    sprites.destroy(mySprite, effects.hearts, 500)
+    sprites.destroy(mySprite2, effects.hearts, 500)
 })
 controller.player2.onButtonEvent(ControllerButton.A, ControllerButtonEvent.Pressed, function () {
     locationplayer2 = mySprite2.tilemapLocation()
